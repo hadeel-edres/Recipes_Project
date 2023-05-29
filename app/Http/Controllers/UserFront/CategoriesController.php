@@ -20,16 +20,15 @@ class CategoriesController extends Controller
         return view('categories.show', compact('category'));
     }
 
-    public function recipeshow(Categories $category)
-{
-    $recipe = $category->recipes->first();
-    
-    if ($recipe) {
-        return view('categories.recipeshow', compact('recipe'));
-    } else {
-        return view('categories.recipeshow')->with('recipe', null);
+    public function recipeshow(Categories $category, $id)
+    {
+        $recipe = Recipes::find($id);
+        if (!$recipe) {
+            dd('error');
+        }
+
+        return view("categories.recipeshow", compact("recipe"));
     }
-}
 
     
 

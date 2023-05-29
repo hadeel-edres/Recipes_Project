@@ -25,7 +25,7 @@ use App\Http\Controllers\UserFront\WelcomeController;
 Route::get('/rec.ipe', [WelcomeController::class, 'index'])->name('rec.ipe');
 Route::get('/categories', [UserFrontCategoriesController::class, 'index'])->name('categories.index');
 Route::get('/categories/{category}', [UserFrontCategoriesController::class, 'show'])->name('categories.show');
-Route::get('/recipeshow/{category}', [UserFrontCategoriesController::class, 'recipeshow'])->name('categories.recipeshow');
+Route::get('/recipeshow/{category}/{id}', [UserFrontCategoriesController::class, 'recipeshow'])->name('categories.recipeshow');
 Route::get('/creatrecipe', [WelcomeRecipesController::class, 'creatrecipe'])->name('recipes.creat');
 
 Route::get('/dashboard', function () {

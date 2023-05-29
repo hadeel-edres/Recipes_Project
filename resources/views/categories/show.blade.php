@@ -8,7 +8,7 @@
                         <h4 class="mb-3 text-xl font-semibold tracking-tight text-indigo-500 uppercase">
                             {{ $recipe->name }}</h4>
                             <div class="mb-3 text-l font-semibold tracking-tight text-indigo-500 hover:text-indigo-400">
-                    <a href="{{ route('categories.recipeshow', $category->id) }}">
+                    <a href="{{ route('categories.recipeshow', [$category->id, $recipe->id]) }}">
                             <h4>Rezeptdetails &#10140;</h4> 
                         </a>
                     </div>
