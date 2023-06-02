@@ -21,11 +21,19 @@
             Rezept hinzufügen
           </a>
       </div>
-      <div class="grid grid-cols-2 gap-4">
+    </div>
+    <!-- End Main Hero Content -->
+    <section class="px-2 py-32 bg-stone-200 md:px-0">
+            <div class=" mt-4 text-center">
+              <h3 class="text-4xl text-indigo-500 font-bold">Neue Rezepte </h3>
+            </div>
+
+          <div class="max-w-7xl mx-auto mt-8">
+          <div class="grid grid-cols-2 gap-4">
         @foreach($userrecipes as $userrecipe)
-<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-    <a href="#">
-        <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+           <a href="#">
+        <img class="rounded-t-lg" src="{{ Storage::url($userrecipe->image) }}" alt="" />
     </a>
     <div class="p-5">
         <a href="#">
@@ -39,19 +47,8 @@
     </div>
 </div>
         @endforeach
-
 </div>
-    </div>
-    <!-- End Main Hero Content -->
-    <section class="px-2 py-32 bg-stone-200 md:px-0">
-            <div class=" mt-4 text-center">
-              <h3 class="text-4xl text-indigo-500 font-bold">Neue Rezepte </h3>
-            </div>
-            <div class="w-full lg:max-w-md">
-            
-        
       </div>
-
 </section>
 
 <section class="mt-8 bg-violet-100">

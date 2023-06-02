@@ -40,7 +40,7 @@ class WelcomeRecipesController extends Controller
      */
     public function store(WelcomeRecipesStoreRequest $request)
     {
-        $image= $request->file('image')->store('public/recipes');
+        $image= $request->file('image')->store('public/userrecipes');
         $userrecipes= Userrecipes::create([
             'name' => $request->name,
             'description' => $request->description,
