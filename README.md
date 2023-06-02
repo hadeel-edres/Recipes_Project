@@ -1,2 +1,2 @@
 # Recipes_Project
-Recipes Project
+Recipes Project Laravel
