@@ -13,11 +13,13 @@ class WelcomeRecipesController extends Controller
      */
 
      
-    public function welcomeRecipes()
-    {
-        $userrecipes= Userrecipes::all();
-        return view('welcome', compact('userrecipes'));
-    }
+     public function welcomeRecipes()
+     {
+         $userrecipes = Userrecipes::all();
+         $specials = Categories::where('name', 'specials')->first();
+         return view('welcome', compact('userrecipes', 'specials'));
+     }
+     
 
     public function creatrecipe()
     {
@@ -50,7 +52,8 @@ class WelcomeRecipesController extends Controller
         if ($request->has('categories')) {
             $userrecipes->categories()->attach($request->categories);
         }
-        return to_route('welcome');
+        return redirect()->route('welcome');
+
     }
 
     /**

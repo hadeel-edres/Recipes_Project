@@ -27,6 +27,11 @@ Route::get('/categories', [UserFrontCategoriesController::class, 'index'])->name
 Route::get('/categories/{category}', [UserFrontCategoriesController::class, 'show'])->name('categories.show');
 Route::get('/recipeshow/{category}/{id}', [UserFrontCategoriesController::class, 'recipeshow'])->name('categories.recipeshow');
 Route::get('/creatrecipe', [WelcomeRecipesController::class, 'creatrecipe'])->name('recipes.creat');
+Route::post('/creatrecipe', [WelcomeRecipesController::class, 'store'])->name('recipes.store');
+Route::get('/rec.ipe', [WelcomeRecipesController::class, 'welcomeRecipes'])->name('welcome');
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
