@@ -10,7 +10,7 @@ use App\Models\Categories;
 class Userrecipes extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'ingredients',  'image'];
+    protected $fillable = ['name', 'description', 'ingredients', 'steps', 'image'];
 
     public function categories()
 {

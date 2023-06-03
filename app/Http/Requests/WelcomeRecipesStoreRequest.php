@@ -13,6 +13,7 @@ class WelcomeRecipesStoreRequest extends FormRequest
     {
         return true;
     }
+    
 
     /**
      * Get the validation rules that apply to the request.
@@ -25,6 +26,7 @@ class WelcomeRecipesStoreRequest extends FormRequest
             'name' => ['required'],
             'description' => ['required'],
             'ingredients' => ['required'],
+            'steps' => ['required'],
             'image' => ['required', 'image'],
         ];
     }

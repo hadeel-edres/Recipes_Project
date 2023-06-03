@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class recipes extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'ingredients',  'image'];
+    protected $fillable = ['name', 'description', 'ingredients', 'steps','image'];
 
     // Funktion to make the Relationship between Recipes and Categories.
     public function categories()

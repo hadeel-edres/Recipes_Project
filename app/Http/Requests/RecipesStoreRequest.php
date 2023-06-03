@@ -25,6 +25,7 @@ class RecipesStoreRequest extends FormRequest
             'name' => ['required'],
             'description' => ['required'],
             'ingredients' => ['required'],
+            'steps' => ['required'],
             'image' => ['required', 'image'],
         ];
     }

@@ -31,17 +31,22 @@
           <div class="max-w-7xl mx-auto mt-8">
           <div class="grid grid-cols-2 gap-4">
         @foreach($userrecipes as $userrecipe)
-        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-white dark:border-gray-200">
            <a href="#">
         <img class="rounded-t-lg" src="{{ Storage::url($userrecipe->image) }}" alt="" />
     </a>
     <div class="p-5">
         <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-indigo-500 dark:text-indigo-500">{{$userrecipe->name}}</h5>
         </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{$userrecipe->description}}</p>
+        <div class="flex flex-warp p-2">
+          @foreach($userrecipe->categories as $category)
+          <span class="text-sm font-semibold text-indigo-500 ">#{{ $category->name }}</span>
+          @endforeach
+         </div>
+        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-indigo-500 rounded-lg hover:indigo-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:indigo-500 dark:hover:indigo-600 dark:focus:ring-indigo-500">
+            View Rezeptdetails
             <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </a>
     </div>

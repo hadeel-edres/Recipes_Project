@@ -39,6 +39,7 @@ class RecipesController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'ingredients' => $request->ingredients,
+            'steps' => $request->steps,
             'image' => $image
            
         ]);
@@ -74,7 +75,8 @@ class RecipesController extends Controller
         $request->validate([
             'name'=>'required',
             'description'=>'required',
-            'ingredients'=>'required'
+            'ingredients'=>'required',
+            'steps'=>'required'
         ]);
         $image= $recipe->image;
         if($request->hasFile('image')){
@@ -84,7 +86,8 @@ class RecipesController extends Controller
         $recipe->update([
             'name'=>$request->name,
             'description'=>$request->description,
-            'ingredients'=>$request->description,
+            'ingredients'=>$request->ingredients,
+            'steps'=>$request->steps,
             'image'=>$image
         ]);
         if ($request->has('categories')) {
