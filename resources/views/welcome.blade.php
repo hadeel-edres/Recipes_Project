@@ -23,15 +23,14 @@
       </div>
     </div>
     <!-- End Main Hero Content -->
-    <section class="px-2 py-32 bg-stone-200 md:px-0">
+<section class="mt-8 bg-stone-200">
             <div class=" mt-4 text-center">
-              <h3 class="text-4xl text-indigo-500 font-bold">Neue Rezepte </h3>
+              <h3 class="text-4xl text-indigo-500 font-bold">User Retepte </h3>
             </div>
-
-          <div class="max-w-7xl mx-auto mt-8">
-          <div class="grid grid-cols-2 gap-4">
+            <div class="container w-full px-5 py-6 mx-auto">
+             <div class="grid lg:grid-cols-4 gap-y-6">
         @foreach($userrecipes as $userrecipe)
-        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-white dark:border-gray-200">
+        <div class="max-w-xs mx-4 mb-2 rounded-lg shadow-lg">
            <a href="#">
         <img class="rounded-t-lg" src="{{ Storage::url($userrecipe->image) }}" alt="" />
     </a>
@@ -45,48 +44,18 @@
           <span class="text-sm font-semibold text-indigo-500 ">#{{ $category->name }}</span>
           @endforeach
          </div>
-        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-indigo-500 rounded-lg hover:indigo-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:indigo-500 dark:hover:indigo-600 dark:focus:ring-indigo-500">
+        <a href="{{ route('user.show', ['id' => $userrecipe->id]) }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-indigo-500 rounded-lg hover:indigo-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:indigo-500 dark:hover:indigo-600 dark:focus:ring-indigo-500">
             View Rezeptdetails
             <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </a>
     </div>
-</div>
+  </div>
         @endforeach
-</div>
+     </div>
       </div>
 </section>
 
-<section class="mt-8 bg-violet-100">
-<div class="mt-4 text-center">
-  <br>
-            <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400">
-                BESONDERES BELIEBT</h2>
-                <h4>Diese internationalen Rezepte sind nur eine kleine Auswahl der vielfältigen kulinarischen Genüsse,<br> die die Welt zu bieten hat.</h4>
-        </div>
-  <div class="container w-full px-5 py-6 mx-auto">
-    <div class="grid lg:grid-cols-4 gap-y-6">
-      @if($specials !== null && $specials->recipes->count() > 0)
-        @foreach($specials->recipes as $recipe)
-          <div class="max-w-xs mx-4 mb-2 rounded-lg shadow-lg">
-            <img class="w-full h-48" src="{{ Storage::url($recipe->image) }}" alt="Image" />
-            <div class="px-6 py-4 bg-white">
-              <h4 class="mb-3 text-xl font-semibold tracking-tight text-indigo-500 uppercase">{{ $recipe->name }}</h4>
-              <div class="mb-3 text-l font-semibold tracking-tight text-indigo-500 hover:text-indigo-400">
-              <a href="{{ route('categories.recipeshow', [$specials->id, $recipe->id]) }}">
-                      <h4>Rezeptdetails &#10140;</h4>
-                  </a>
-                    </div>
-            </div>
-          </div>
-        @endforeach
-      @else
-        <p>Keine Rezepte gefunden.</p>
-      @endif
-    </div>
-  </div>
-</section>
-
-    <section class="py-20 bg-stone-200">
+<section class="py-20 bg-stone-200">
       <div class="container items-center max-w-6xl px-4 px-10 mx-auto sm:px-20 md:px-32 lg:px-16">
         <div class="flex flex-wrap items-center -mx-3">
           <div class="order-1 w-full px-3 lg:w-1/2 lg:order-0">
@@ -130,23 +99,57 @@
             </div>
           </div>
           <div class="w-full px-3 mb-12 lg:w-1/2 order-0 lg:order-1 lg:mb-0">
-<div class="mb-4">
+ <div class="mb-4">
   <img
     src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
     class="h-auto max-w-full rounded-full hover:scale-110"
     alt="" />
-</div>
-<br>
-<div class="mb-4">
-  <img
+ </div>
+  <br>
+   <div class="mb-4">
+    <img
     src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
     class="h-auto max-w-full rounded-full hover:scale-110"
     alt="" />
-</div></div>
+    </div>
+    </div>
         </div>
       </div>
     </section>
-    <section class="pt-4 pb-12 bg-fuchsia-100">
+
+<section class="mt-8 bg-violet-100">
+   <div class="mt-4 text-center">
+  <br>
+            <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400">
+                BESONDERES BELIEBT</h2>
+                <h4>Diese internationalen Rezepte sind nur eine kleine Auswahl der vielfältigen kulinarischen Genüsse,<br> die die Welt zu bieten hat.</h4>
+        </div>
+  <div class="container w-full px-5 py-6 mx-auto">
+    <div class="grid lg:grid-cols-4 gap-y-6">
+      @if($specials !== null && $specials->recipes->count() > 0)
+        @foreach($specials->recipes as $recipe)
+          <div class="max-w-xs mx-4 mb-2 rounded-lg shadow-lg">
+            <img class="w-full h-48" src="{{ Storage::url($recipe->image) }}" alt="Image" />
+            <div class="px-6 py-4 bg-white">
+              <h4 class="mb-3 text-xl font-semibold tracking-tight text-indigo-500 uppercase">{{ $recipe->name }}</h4>
+              <p class="text-sm font-semibold text-indigo-500 ">{{ $recipe->description }}</p>  
+                        <br>  
+              <div class="mb-3 text-l font-semibold tracking-tight text-indigo-500 hover:text-indigo-400">
+              <a href="{{ route('categories.recipeshow', [$specials->id, $recipe->id]) }}">
+                      <h4>Rezeptdetails &#10140;</h4>
+                  </a>
+                    </div>
+            </div>
+          </div>
+        @endforeach
+      @else
+        <p>Keine Rezepte gefunden.</p>
+      @endif
+    </div>
+  </div>
+</section>
+
+  <section class="pt-4 pb-12 bg-fuchsia-100">
       <div>
       <div class="my-9 text-center">
         <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
@@ -160,9 +163,6 @@
         <div>
             <img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="">
         </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1586511925558-a4c6376fe65f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="">
-        </div>
     </div>
     <div class="grid gap-4">
         <div>
@@ -173,9 +173,6 @@
         </div>
         <div>
             <img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1534080564583-6be75777b70a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://plus.unsplash.com/premium_photo-1683892041696-71c87c1858be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="">
         </div>
     </div>
     <div class="grid gap-4">
@@ -188,9 +185,6 @@
         <div>
             <img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="">
         </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="">
-        </div>
     </div>
     <div class="grid gap-4">
         <div>
@@ -198,9 +192,6 @@
         </div>
         <div>
             <img class="h-auto max-w-full rounded-lg" src="https://plus.unsplash.com/premium_photo-1672363353887-d5a9d1a3c8c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="">
         </div>
     </div>
 </div>

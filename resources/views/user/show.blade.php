@@ -25,13 +25,12 @@
                             </p>
                         </div>
                         <div class="flex m-2 p-2">
-                            @if ($recipe->categories->first())
-                                <a href="{{ route('categories.show', $recipe->categories->first()->id) }}"
-                                    class="px-4 py-2 bg-indigo-500 hover:bg-indigo-400 rounded-lg text-white"> Zurück zu Rezepte </a>
-                            @endif
-                            &nbsp;	&nbsp;
+                            
                             <a href="/rec.ipe"
-                                    class="px-4 py-2 bg-indigo-500 hover:bg-indigo-400 rounded-lg text-white"> Home </a>
+                                    class="px-4 py-2 bg-indigo-500 hover:bg-indigo-400 rounded-lg text-white"> Zurück </a>
+                                    &nbsp;	&nbsp;
+                                    <a href="{{ route('user.edit', $recipe->id) }}"
+                                    class="px-4 py-2 bg-green-400 hover:bg-green-600 rounded-lg text-white"> Bearbeiten </a>
                         </div>
                     @else
                         <p>Kein Rezept gefunden.</p>
@@ -43,5 +42,3 @@
         </div>
     </div>
 </x-guest-layout>
-
-

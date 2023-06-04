@@ -7,6 +7,8 @@
                     <div class="px-6 py-4">
                         <h4 class="mb-3 text-xl font-semibold tracking-tight text-indigo-500 uppercase">
                             {{ $recipe->name }}</h4>
+                        <p class="text-sm font-semibold text-indigo-500 ">{{ $recipe->description }}</p>  
+                        <br>  
                             <div class="mb-3 text-l font-semibold tracking-tight text-indigo-500 hover:text-indigo-400">
                     <a href="{{ route('categories.recipeshow', [$category->id, $recipe->id]) }}">
                             <h4>Rezeptdetails &#10140;</h4> 

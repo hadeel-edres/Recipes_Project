@@ -5,6 +5,8 @@ use App\Models\Userrecipes;
 use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Http\Requests\WelcomeRecipesStoreRequest;
+use App\Models\Recipes;
+
 
 class WelcomeRecipesController extends Controller
 {
@@ -45,6 +47,7 @@ class WelcomeRecipesController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'ingredients' => $request->ingredients,
+            'steps' => $request->steps,
             'image' => $image
            
         ]);
@@ -59,25 +62,50 @@ class WelcomeRecipesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+    public function show($id)
+{
+    $recipe = Userrecipes::findOrFail($id);
+
+    return view("user.show", compact("recipe"));
+}
+
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Userrecipes $userrecipe)
     {
-        //
+        $categories = Categories::all();
+        return view('user.edit', compact('userrecipe', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Userrecipes $userrecipe)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'description'=>'required',
+            'ingredients'=>'required',
+            'steps'=>'required'
+        ]);
+        $image= $userrecipe->image;
+        if($request->hasFile('image')){
+            Storage::delete($userrecipe->image);
+            $image= $request->file('image')->store('public/userrecipes');
+        }
+        $userrecipe->update([
+            'name'=>$request->name,
+            'description'=>$request->description,
+            'ingredients'=>$request->ingredients,
+            'steps'=>$request->steps,
+            'image'=>$image
+        ]);
+        if ($request->has('categories')) {
+            $userrecipe->categories()->sync($request->categories);
+        }
+        return redirect()->route('welcome');
     }
 
     /**

@@ -26,10 +26,14 @@ Route::get('/rec.ipe', [WelcomeController::class, 'index'])->name('rec.ipe');
 Route::get('/categories', [UserFrontCategoriesController::class, 'index'])->name('categories.index');
 Route::get('/categories/{category}', [UserFrontCategoriesController::class, 'show'])->name('categories.show');
 Route::get('/recipeshow/{category}/{id}', [UserFrontCategoriesController::class, 'recipeshow'])->name('categories.recipeshow');
-Route::get('/creatrecipe', [WelcomeRecipesController::class, 'creatrecipe'])->name('recipes.creat');
-Route::post('/creatrecipe', [WelcomeRecipesController::class, 'store'])->name('recipes.store');
 Route::get('/rec.ipe', [WelcomeRecipesController::class, 'welcomeRecipes'])->name('welcome');
 
+// User Rezepte hinzufügen Routs
+Route::get('/creatrecipe', [WelcomeRecipesController::class, 'creatrecipe'])->name('recipes.creat');
+Route::post('/creatrecipe', [WelcomeRecipesController::class, 'store'])->name('recipes.store');
+Route::get('/user_recipe/{id}', [WelcomeRecipesController::class, 'show'])->name('user.show');
+Route::get('/user_recipe_edit/{id}', [WelcomeRecipesController::class, 'edit'])->name('user.edit');
+Route::put('/user_recipe_edit', [WelcomeRecipesController::class, 'update'])->name('user.update');
 
 
 

@@ -925,9 +925,6 @@ select {
 .max-w-lg {
   max-width: 32rem;
 }
-.max-w-sm {
-  max-width: 24rem;
-}
 .max-w-xl {
   max-width: 36rem;
 }
@@ -1863,11 +1860,6 @@ select {
     border-width: 1px;
   }
 
-  .dark\:border-gray-200 {
-    --tw-border-opacity: 1;
-    border-color: rgb(229 231 235 / var(--tw-border-opacity));
-  }
-
   .dark\:border-gray-500 {
     --tw-border-opacity: 1;
     border-color: rgb(107 114 128 / var(--tw-border-opacity));
@@ -1929,11 +1921,6 @@ select {
 
   .dark\:bg-transparent {
     background-color: transparent;
-  }
-
-  .dark\:bg-white {
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }
 
   .dark\:text-blue-400 {
@@ -2357,11 +2344,6 @@ select {
 
   .md\:overflow-y-auto {
     overflow-y: auto;
-  }
-
-  .md\:px-0 {
-    padding-left: 0px;
-    padding-right: 0px;
   }
 
   .md\:px-32 {
