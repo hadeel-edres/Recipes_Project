@@ -32,6 +32,13 @@
                                     <option value= "{{ $categories->id }}" @selected($recipe->categories->contains($categories))>{{ $categories->name }}</option>
                                    @endforeach
                                   </select></div>
+
+    <div class="sm:col-span-6 pt-5">
+        <label for="body" class="block text-sm font-medium text-gray-700">Beschreibung</label>
+            <div class="mt-1">
+                <textarea id="body" rows="3" name="description" 
+                    class="shadow-sm focus:ring-indigo-500 appearance-none bg-white border py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">{{ $recipe->description }}</textarea>
+                     </div>
    
     <div class="sm:col-span-6 pt-5">
     <label for="body" class="block text-sm font-medium text-gray-700">Zutaten</label>
@@ -39,12 +46,14 @@
         <textarea id="body" rows="3" name="ingredients"  class="shadow-sm focus:ring-indigo-500 appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">{{ $recipe->ingredients }}</textarea>
       </div>
     </div>
-                           <div class="sm:col-span-6 pt-5">
-                            <label for="body" class="block text-sm font-medium text-gray-700">Beschreibung</label>
-                            <div class="mt-1">
-                                <textarea id="body" rows="3" name="description" 
-                                    class="shadow-sm focus:ring-indigo-500 appearance-none bg-white border py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">{{ $recipe->description }}</textarea>
-                            </div>
+
+    <div class="sm:col-span-6 pt-5">
+    <label for="body" class="block text-sm font-medium text-gray-700">Zubereitung</label>
+      <div class="mt-1">
+        <textarea id="body" rows="3" name="steps"  class="shadow-sm focus:ring-indigo-500 appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">{{ $recipe->steps }}</textarea>
+      </div>
+    </div>
+                           
                             <div class="sm:col-span-6">
                             <label for="image" class="block text-sm font-medium text-gray-700"> Image </label>
                             <div>

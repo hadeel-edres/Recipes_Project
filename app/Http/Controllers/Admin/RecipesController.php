@@ -55,7 +55,12 @@ class RecipesController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $recipe = Recipes::find($id);
+        if (!$recipe) {
+            dd('error');
+        }
+
+        return view("admin.recipes.show", compact("recipe"));
     }
 
     /**

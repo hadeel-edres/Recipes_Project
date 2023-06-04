@@ -23,9 +23,6 @@
                 Beschreibung
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Zutaten
-                </th>
-                <th scope="col" class="px-6 py-3">
                     Bild
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -43,15 +40,13 @@
                     {{ $recipes->description }}
                 </td>
                 <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ $recipes->ingredients }}
-                </td>
-                <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
                    <img src="{{ Storage::url($recipes->image) }}" class="w-16 h-16 rounded">
                 </td>
                 
                 <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   <div class= "flex space-x-2">
                   <a href=" {{ route('admin.recipes.edit', $recipes->id) }}" class="py-2 px-4 bg-green-400 hover:bg-green-600 text-white rounded-lg"> Bearbeiten </a>
+                  <a href=" {{ route('admin.recipes.show', $recipes->id) }}" class="py-2 px-4 bg-cyan-500 hover:bg-cyan-700 text-white rounded-lg"> Zeigen </a>
                   <form class= "py-2 px-4 bg-red-400 hover:bg-red-600 text-white rounded-lg" method="POST" 
                         action="{{ route('admin.recipes.destroy', $recipes->id) }}" onsubmit="return confirm('Bist du sicher?');">
                         @csrf
