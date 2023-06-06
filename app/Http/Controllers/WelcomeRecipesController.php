@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Http\Requests\WelcomeRecipesStoreRequest;
 use App\Models\Recipes;
+use Illuminate\Support\Facades\Storage;
 
 
 class WelcomeRecipesController extends Controller

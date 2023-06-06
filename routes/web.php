@@ -32,8 +32,8 @@ Route::get('/rec.ipe', [WelcomeRecipesController::class, 'welcomeRecipes'])->nam
 Route::get('/creatrecipe', [WelcomeRecipesController::class, 'creatrecipe'])->name('recipes.creat');
 Route::post('/creatrecipe', [WelcomeRecipesController::class, 'store'])->name('recipes.store');
 Route::get('/user_recipe/{id}', [WelcomeRecipesController::class, 'show'])->name('user.show');
-Route::get('/user_recipe_edit/{id}', [WelcomeRecipesController::class, 'edit'])->name('user.edit');
-Route::put('/user_recipe_edit', [WelcomeRecipesController::class, 'update'])->name('user.update');
+Route::get('/user_recipe_edit/{userrecipe}', [WelcomeRecipesController::class, 'edit'])->name('user.edit');
+Route::put('/user_recipe_edit/{userrecipe}', [WelcomeRecipesController::class, 'update'])->name('user.update');
 
 
 
