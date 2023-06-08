@@ -112,8 +112,10 @@ class WelcomeRecipesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Userrecipes $userrecipe)
     {
-        //
+        Storage::delete($userrecipe->image);
+        $userrecipe->delete();
+        return redirect()->route('welcome');
     }
 }

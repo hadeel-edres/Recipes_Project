@@ -34,6 +34,7 @@ Route::post('/creatrecipe', [WelcomeRecipesController::class, 'store'])->name('r
 Route::get('/user_recipe/{id}', [WelcomeRecipesController::class, 'show'])->name('user.show');
 Route::get('/user_recipe_edit/{userrecipe}', [WelcomeRecipesController::class, 'edit'])->name('user.edit');
 Route::put('/user_recipe_edit/{userrecipe}', [WelcomeRecipesController::class, 'update'])->name('user.update');
+Route::delete('/user_recipe_edit/{userrecipe}', [WelcomeRecipesController::class, 'destroy'])->name('user.destroy');
 
 
 

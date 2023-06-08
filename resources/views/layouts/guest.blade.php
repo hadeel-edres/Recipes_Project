@@ -46,8 +46,6 @@
             href="/rec.ipe">Home</a>
           <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500"
           href="{{ route('categories.index') }}">Rezepte nach Mahlzeit</a>
-          <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500"
-            href="#">Über uns</a>
             <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500"
             href="/login">Login</a>
             <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500"

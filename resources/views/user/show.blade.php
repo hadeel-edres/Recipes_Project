@@ -31,6 +31,18 @@
                                     &nbsp;	&nbsp;
                                     <a href="{{ route('user.edit', $recipe->id) }}"
                                     class="px-4 py-2 bg-green-400 hover:bg-green-600 rounded-lg text-white"> Bearbeiten </a>
+                                    &nbsp;	&nbsp;
+                                    @auth
+                                    @if(Auth::user()->is_admin)
+                                    <form class="py-2 px-4 bg-red-400 hover:bg-red-600 text-white rounded-lg" method="POST" 
+                                          action="{{ route('user.destroy', $recipe->id) }}" onsubmit="return confirm('Bist du sicher?');">
+                                                     @csrf
+                                                     @method('DELETE')
+                                                    <button type="submit">Löschen</button>
+                                                              </form>
+                                                              @endif
+                                                               @endauth
+
                         </div>
                     @else
                         <p>Kein Rezept gefunden.</p>
