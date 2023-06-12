@@ -1,3 +1,5 @@
+<title>Rec.ipe</title>
+@laravelPWA
 <x-guest-layout>
         <!-- Main Hero Content -->
     <div
@@ -13,13 +15,16 @@
       inspirierenden Rezepten und faszinierenden Geschichten über die vielfältigen Esskulturen unserer Erde.
       </div>
       <div class="flex flex-col items-center mt-12 text-center">
-        <h2 class="text-white"> Melden Sie sich oder registrieren Sie, bevor Sie ein Rezept hinzufügen. <a href="/register" calss="text-indigo-500 underline dark:text-blue-400 hover:no-underline">registrieren</a><h2>
+        <h2 class="text-white"> Melden Sie sich oder registrieren Sie, um ein Rezept hinzufügen zu können. <a href="/register" class="text-indigo-500 underline dark:text-indigo-500 hover:no-underline hover:text-blue-400">registrieren</a>
+          <br>
           <br>
         <span class="relative inline-flex w-full md:w-auto">
+        @if(auth()->check()) <!-- Überprüft, ob der Benutzer angemeldet ist -->
           <a href="{{ route('recipes.creat')}}" type="button"
             class="inline-flex items-center justify-center px-6 py-2 text-base font-bold leading-6 text-white bg-indigo-500 hover:bg-indigo-400 rounded-full lg:w-full md:w-auto focus:outline-none">
             Rezept hinzufügen
           </a>
+          @endif
       </div>
     </div>
     <!-- End Main Hero Content -->
