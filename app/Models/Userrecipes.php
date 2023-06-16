@@ -10,11 +10,17 @@ use App\Models\Categories;
 class Userrecipes extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'ingredients', 'steps', 'image'];
+    protected $fillable = ['name', 'description', 'ingredients', 'steps', 'image', 'user_id'];
 
     public function categories()
 {
     return $this->belongsToMany(Categories::class);
 }
+
+public function user()
+{
+    return $this->belongsTo(User::class);
+}
+
 
 }

@@ -7,6 +7,7 @@ use App\Models\Categories;
 use App\Http\Requests\WelcomeRecipesStoreRequest;
 use App\Models\Recipes;
 use Illuminate\Support\Facades\Storage;
+use App\Models\User;
 
 
 class WelcomeRecipesController extends Controller
@@ -49,7 +50,8 @@ class WelcomeRecipesController extends Controller
             'description' => $request->description,
             'ingredients' => $request->ingredients,
             'steps' => $request->steps,
-            'image' => $image
+            'image' => $image,
+            'user_id' => $request->user_id
            
         ]);
 
@@ -63,11 +65,12 @@ class WelcomeRecipesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($user_id, $id)
 {
     $recipe = Userrecipes::findOrFail($id);
+    $user = User::findOrFail($user_id);
 
-    return view("user.show", compact("recipe"));
+    return view("user.show", compact("recipe", "user"));
 }
 
 
@@ -89,7 +92,8 @@ class WelcomeRecipesController extends Controller
             'name'=>'required',
             'description'=>'required',
             'ingredients'=>'required',
-            'steps'=>'required'
+            'steps'=>'required',
+            'user_id'=>'required'
         ]);
         $image= $userrecipe->image;
         if($request->hasFile('image')){
@@ -101,7 +105,8 @@ class WelcomeRecipesController extends Controller
             'description'=>$request->description,
             'ingredients'=>$request->ingredients,
             'steps'=>$request->steps,
-            'image'=>$image
+            'image'=>$image,
+            'user_id' => $request->user_id
         ]);
         if ($request->has('categories')) {
             $userrecipe->categories()->sync($request->categories);

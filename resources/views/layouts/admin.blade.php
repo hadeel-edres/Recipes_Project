@@ -39,7 +39,7 @@
                 <x-admin-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
                         {{ __('Kategorien') }}
                 </x-admin-nav-link>
-                <x-admin-nav-link href="http://127.0.0.1:9000/rec.ipe" active="{{ request()->is('rec.ipe') }}">
+                <x-admin-nav-link href="http://127.0.0.1:8000/rec.ipe" active="{{ request()->is('rec.ipe') }}">
                        {{ __('Start Seite') }}
                 </x-admin-nav-link>
 
