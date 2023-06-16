@@ -1927,11 +1927,6 @@ select {
     background-color: transparent;
   }
 
-  .dark\:text-blue-400 {
-    --tw-text-opacity: 1;
-    color: rgb(96 165 250 / var(--tw-text-opacity));
-  }
-
   .dark\:text-gray-100 {
     --tw-text-opacity: 1;
     color: rgb(243 244 246 / var(--tw-text-opacity));
@@ -2292,12 +2287,20 @@ select {
     display: none;
   }
 
+  .md\:h-24 {
+    height: 6rem;
+  }
+
   .md\:h-screen {
     height: 100vh;
   }
 
   .md\:min-h-screen {
     min-height: 100vh;
+  }
+
+  .md\:w-24 {
+    width: 6rem;
   }
 
   .md\:w-64 {
@@ -2384,10 +2387,6 @@ select {
 
   .lg\:w-1\/2 {
     width: 50%;
-  }
-
-  .lg\:w-full {
-    width: 100%;
   }
 
   .lg\:max-w-md {

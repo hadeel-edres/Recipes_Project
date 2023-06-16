@@ -3,8 +3,8 @@
 return [
     'name' => 'Rec.ipe',
     'manifest' => [
-        'name' => env('APP_NAME', 'Rec.ipe'),
-        'short_name' => 'rec.ipe',
+        'name' => env('Rec.ipe', 'Rec.ipe'),
+        'short_name' => 'Rec.ipe',
         'start_url' => '/rec.ipe',
         'background_color' => '#6777ef',
         'theme_color' => '#6777ef',
@@ -62,17 +62,14 @@ return [
             ],
         ],
         'splash' => [
-            '640x1136' => '/images/icons/splash-640x1136.png',
-            '750x1334' => '/images/icons/splash-750x1334.png',
-            '828x1792' => '/images/icons/splash-828x1792.png',
-            '1125x2436' => '/images/icons/splash-1125x2436.png',
-            '1242x2208' => '/images/icons/splash-1242x2208.png',
-            '1242x2688' => '/images/icons/splash-1242x2688.png',
-            '1536x2048' => '/images/icons/splash-1536x2048.png',
-            '1668x2224' => '/images/icons/splash-1668x2224.png',
-            '1668x2388' => '/images/icons/splash-1668x2388.png',
-            '2048x2732' => '/images/icons/splash-2048x2732.png',
-            '1242x2688' => '/images/icons/splash_screen1242x2688',
+            '200x320' => '/public/images/icons/200x320.png',
+            '828x1792' => '/public/images/icons/828x1792.png',
+            '960x1600' => '/public/images/icons/960x1600.png',
+            '1125x2436' => '/public/images/icons/1125x2436.png',
+            '1242x2208' => '/public/images/icons/1242x2208.png',
+            '1242x2688' => '/public/images/icons/1242x2688.png',
+            '128x1920' => '/public/images/icons/128x1920.png',
+            '1536x2008' => '/public/images/icons/1536x2008.png',
         ],
         'shortcuts' => [
             [

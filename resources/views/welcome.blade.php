@@ -7,7 +7,7 @@
       style="background-image: url('https://cdn.pixabay.com/photo/2016/02/05/15/34/pasta-1181189_960_720.jpg')">
       <h1
         class="font-mono text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 md:text-center sm:leading-none lg:text-5xl">
-        <span class="inline md:block">REC.IPE FOODBLOG</span>
+        <span class="inline md:block"> REC.IPE FOODBLOG</span>
       </h1>
       <div class="mx-auto mt-2 text-green-50 md:text-center lg:text-lg">
       Willkommen auf unserer internationalen Food-Blog-Webseite!<br>
@@ -20,17 +20,17 @@
           <br>
         <span class="relative inline-flex w-full md:w-auto">
         @if(auth()->check()) <!-- Überprüft, ob der Benutzer angemeldet ist -->
-          <a href="{{ route('recipes.creat')}}" type="button"
-            class="inline-flex items-center justify-center px-6 py-2 text-base font-bold leading-6 text-white bg-indigo-500 hover:bg-indigo-400 rounded-full lg:w-full md:w-auto focus:outline-none">
-            Rezept hinzufügen
-          </a>
+        <a href="{{ route('recipes.creat')}}" type="button" class="inline-flex items-center justify-center px-6 py-2 text-base font-bold leading-6 text-white bg-indigo-500 hover:bg-indigo-400 rounded-full w-full md:w-auto focus:outline-none">
+         Rezept hinzufügen
+       </a>
+
           @endif
       </div>
     </div>
     <!-- End Main Hero Content -->
 <section class="mt-8 bg-stone-200">
             <div class=" mt-4 text-center">
-              <h3 class="text-4xl text-indigo-500 font-bold">User Retepte </h3>
+              <h3 class="text-4xl text-indigo-500 font-bold">User Rezepte </h3>
             </div>
             <div class="container w-full px-5 py-6 mx-auto">
              <div class="grid lg:grid-cols-4 gap-y-6">
