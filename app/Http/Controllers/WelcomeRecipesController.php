@@ -51,7 +51,7 @@ class WelcomeRecipesController extends Controller
             'ingredients' => $request->ingredients,
             'steps' => $request->steps,
             'image' => $image,
-            'user_id' => $request->user_id
+            'user_id' => $request->user()->id
            
         ]);
 

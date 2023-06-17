@@ -22,7 +22,7 @@ use App\Http\Controllers\UserFront\WelcomeController;
 */
 
 // User And Frontend Routes
-Route::get('/rec.ipe', [WelcomeController::class, 'index'])->name('rec.ipe');
+//Route::get('/rec.ipe', [WelcomeController::class, 'index'])->name('rec.ipe');
 Route::get('/categories', [UserFrontCategoriesController::class, 'index'])->name('categories.index');
 Route::get('/categories/{category}', [UserFrontCategoriesController::class, 'show'])->name('categories.show');
 Route::get('/recipeshow/{category}/{id}', [UserFrontCategoriesController::class, 'recipeshow'])->name('categories.recipeshow');
@@ -32,7 +32,7 @@ Route::get('/rec.ipe', [WelcomeRecipesController::class, 'welcomeRecipes'])->nam
 Route::get('/creatrecipe', [WelcomeRecipesController::class, 'creatrecipe'])->name('recipes.creat');
 Route::post('/creatrecipe', [WelcomeRecipesController::class, 'store'])->name('recipes.store');
 Route::get('/user_recipe/{user_id}/{id}', [WelcomeRecipesController::class, 'show'])->name('user.show');
-Route::get('/user_recipe_edit/{userrecipe}', [WelcomeRecipesController::class, 'edit'])->name('user.edit');
+Route::get('/user_recipe_edit/{userrecipe}', [WelcomeRecipesController::class, 'edit'])->middleware('auth')->name('user.edit');
 Route::put('/user_recipe_edit/{userrecipe}', [WelcomeRecipesController::class, 'update'])->name('user.update');
 Route::delete('/user_recipe_edit/{userrecipe}', [WelcomeRecipesController::class, 'destroy'])->name('user.destroy');
 
