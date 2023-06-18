@@ -8,6 +8,8 @@ use App\Http\Requests\WelcomeRecipesStoreRequest;
 use App\Models\Recipes;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 
 class WelcomeRecipesController extends Controller
@@ -77,16 +79,32 @@ class WelcomeRecipesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Userrecipes $userrecipe)
+    public function edit($user_id, $userrecipe)
     {
         $categories = Categories::all();
-        return view('user.edit', compact('userrecipe', 'categories'));
+        $user = User::findOrFail($user_id);
+        $userrecipe= Userrecipes::findOrFail($userrecipe);
+
+        // Überprüfe, ob der Benutzer eingeloggt ist.
+    if (!Auth::check()) {
+        // Weiterleitung zur Login-Seite.
+        return Redirect::route('login');
     }
+
+    // Überprüfe, ob der Benutzer die erforderliche Berechtigung hat
+    $loggedInUser = Auth::user();
+    if ($loggedInUser->id !== $user->id && $loggedInUser->id !== 1) {
+        // Weiterleitung zur 404-Fehlerseite
+        abort(404);
+    }
+        return view('user.edit', compact('userrecipe', 'categories', 'user'));
+    }
+    
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Userrecipes $userrecipe)
+    public function update(Request $request, $user_id, $userrecipe)
     {
         $request->validate([
             'name'=>'required',
@@ -106,7 +124,7 @@ class WelcomeRecipesController extends Controller
             'ingredients'=>$request->ingredients,
             'steps'=>$request->steps,
             'image'=>$image,
-            'user_id' => $request->user_id
+            'user_id' => $request->user()->id
         ]);
         if ($request->has('categories')) {
             $userrecipe->categories()->sync($request->categories);
@@ -117,10 +135,16 @@ class WelcomeRecipesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Userrecipes $userrecipe)
-    {
-        Storage::delete($userrecipe->image);
-        $userrecipe->delete();
-        return redirect()->route('welcome');
-    }
+    public function destroy($user_id, $userrecipe)
+{
+    $userrecipe = UserRecipes::findOrFail($userrecipe);
+    // Manuell abhängige Einträge löschen
+    $userrecipe->categories()->detach();
+    Storage::delete($userrecipe->image);
+    $userrecipe->delete();
+    
+    return redirect()->route('welcome');
+}
+
+
 }
