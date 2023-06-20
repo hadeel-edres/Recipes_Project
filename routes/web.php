@@ -21,14 +21,16 @@ use App\Http\Controllers\UserFront\WelcomeController;
 |
 */
 
-// User And Frontend Routes
-//Route::get('/rec.ipe', [WelcomeController::class, 'index'])->name('rec.ipe');
+// Startseite Route (Für welcome.blade.php).
+Route::get('/rec.ipe', [WelcomeRecipesController::class, 'welcomeRecipes'])->name('welcome');
+
+// Navigation: Rezepte nach Mahlzeit Routes.
 Route::get('/categories', [UserFrontCategoriesController::class, 'index'])->name('categories.index');
 Route::get('/categories/{category}', [UserFrontCategoriesController::class, 'show'])->name('categories.show');
 Route::get('/recipeshow/{category}/{id}', [UserFrontCategoriesController::class, 'recipeshow'])->name('categories.recipeshow');
-Route::get('/rec.ipe', [WelcomeRecipesController::class, 'welcomeRecipes'])->name('welcome');
 
-// User Rezepte hinzufügen Routs
+
+// User Rezepte hinzufügen Routes.
 Route::get('/creatrecipe', [WelcomeRecipesController::class, 'creatrecipe'])->name('recipes.creat');
 Route::post('/creatrecipe', [WelcomeRecipesController::class, 'store'])->name('recipes.store');
 Route::get('/user_recipe/{user_id}/{id}', [WelcomeRecipesController::class, 'show'])->name('user.show');
@@ -49,14 +51,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 // Admin Page Routes
 Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(function(){
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::resource('/recipes', RecipesController::class);
     Route::resource('/categories', CategoriesController::class);
-        
-
-
 
 });
 

@@ -30,16 +30,13 @@
                 </button>
             </div>
                 <nav :class="{'block': open, 'hidden': !open}" class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
-                <x-admin-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Benutzer Posts') }}
-                </x-admin-nav-link>
                 <x-admin-nav-link :href="route('admin.recipes.index')" :active="request()->routeIs('admin.recipes.index')">
                         {{ __('Rezepte') }}
                 </x-admin-nav-link>
                 <x-admin-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
                         {{ __('Kategorien') }}
                 </x-admin-nav-link>
-                <x-admin-nav-link href="http://127.0.0.1:8000/rec.ipe" active="{{ request()->is('rec.ipe') }}">
+                <x-admin-nav-link href="{{ url('/rec.ipe') }}" active="{{ request()->is('rec.ipe') }}">
                        {{ __('Start Seite') }}
                 </x-admin-nav-link>
 

@@ -15,7 +15,9 @@
       inspirierenden Rezepten und faszinierenden Geschichten über die vielfältigen Esskulturen unserer Erde.
       </div>
       <div class="flex flex-col items-center mt-12 text-center">
+      @if (!Auth::check())
         <h2 class="text-white"> Melden Sie sich oder registrieren Sie, um ein Rezept hinzufügen zu können. <a href="/register" class="text-indigo-500 underline dark:text-indigo-500 hover:no-underline hover:text-blue-400">registrieren</a>
+</h2> @endif
           <br>
           <br>
         <span class="relative inline-flex w-full md:w-auto">
@@ -131,11 +133,11 @@
                 <h4>Diese internationalen Rezepte sind nur eine kleine Auswahl der vielfältigen kulinarischen Genüsse,<br> die die Welt zu bieten hat.</h4>
         </div>
   <div class="container w-full px-5 py-6 mx-auto">
-    <div class="grid lg:grid-cols-4 gap-y-6">
+    <div class="grid lg:grid-cols-4 gap-y-6 bg-violet-100">
       @if($specials !== null && $specials->recipes->count() > 0)
         @foreach($specials->recipes as $recipe)
-          <div class="max-w-xs mx-4 mb-2 rounded-lg shadow-lg">
-            <img class="w-full h-48" src="{{ Storage::url($recipe->image) }}" alt="Image" />
+          <div class="flex flex-col max-w-xs mx-4 mb-2 rounded-lg shadow-lg bg-white">
+            <img class="w-full h-48 object-cover" src="{{ Storage::url($recipe->image) }}" alt="Image" />
             <div class="px-6 py-4 bg-white">
               <h4 class="mb-3 text-xl font-semibold tracking-tight text-indigo-500 uppercase">{{ $recipe->name }}</h4>
               <p class="text-sm font-semibold text-indigo-500 ">{{ $recipe->description }}</p>  

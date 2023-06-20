@@ -22,56 +22,59 @@
     <body class="font-sans text-gray-900 antialiased bg-stone-200">
     <div class="bg-stone-300 shadow-md" x-data="{ isOpen: false }">
     <nav class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center">
-        <div class="flex items-center justify-between">
-            <a class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 md:text-2xl hover:text-indigo-500" href="#">
-                Rec.ipe
-            </a>
-            <!-- Mobile menu button -->
-            <div @click="isOpen = !isOpen" class="flex md:hidden">
-                <button type="button" class="text-gray-800 hover:text-gray-400 focus:outline-none focus:text-gray-400" aria-label="toggle menu">
-                    <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
-                        <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
+    <div class="flex items-center justify-between">
+    <a class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 md:text-2xl hover:text-indigo-500 inline-block relative flex-shrink-0">
+        Rec.ipe
+    </a>
 
-        <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-        <div :class="isOpen ? 'flex' : 'hidden'" class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
-            <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500" href="/rec.ipe">Home</a>
-            <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500" href="{{ route('categories.index') }}">Rezepte nach Mahlzeit</a>
-            <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500" href="/login">Login</a>
-            <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500" href="/register">Registrieren</a>
-            @auth
-            <x-dropdown align="right" width="48">
-                <x-slot name="trigger">
-                    <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white dark:text-white bg-indigo-500 dark:bg-indigo-500 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
-                        <div>
-                            {{ Auth::user()->name }}
-                        </div>
-                        <div class="ml-1">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                    </button>
-                </x-slot>
-                <x-slot name="content">
-                    <x-dropdown-link :href="route('profile.edit')">
-                        {{ __('Profile') }}
-                    </x-dropdown-link>
-                    <!-- Authentication -->
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-                            {{ __('Log Out') }}
-                        </x-dropdown-link>
-                    </form>
-                </x-slot>
-            </x-dropdown>
-            @endauth
+
+        <!-- Mobile menu button -->
+        <div @click="isOpen = !isOpen" class="flex md:hidden">
+            <button type="button" class="text-gray-800 hover:text-gray-400 focus:outline-none focus:text-gray-400" aria-label="toggle menu">
+                <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
+                    <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+                </svg>
+            </button>
         </div>
-    </nav>
+    </div>
+
+    <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+    <div :class="isOpen ? 'flex' : 'hidden'" class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
+        <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500 block md:inline-block md:mt-0" href="/rec.ipe">Home</a>
+        <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500 block md:inline-block md:mt-0" href="{{ route('categories.index') }}">Rezepte nach Mahlzeit</a>
+        <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500 block md:inline-block md:mt-0" href="/login">Login</a>
+        <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500 block md:inline-block md:mt-0" href="/register">Registrieren</a>
+        @auth
+        <x-dropdown align="right" width="48">
+            <x-slot name="trigger">
+                <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white dark:text-white bg-indigo-500 dark:bg-indigo-500 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                    <div>
+                        {{ Auth::user()->name }}
+                    </div>
+                    <div class="ml-1">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                </button>
+            </x-slot>
+            <x-slot name="content">
+                <x-dropdown-link :href="route('profile.edit')">
+                    {{ __('Profile') }}
+                </x-dropdown-link>
+                <!-- Authentication -->
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </x-dropdown-link>
+                </form>
+            </x-slot>
+        </x-dropdown>
+        @endauth
+    </div>
+</nav>
+
 </div>
 
 
