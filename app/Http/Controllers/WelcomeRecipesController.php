@@ -105,32 +105,39 @@ class WelcomeRecipesController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, $user_id, $userrecipe)
-    {
-        $request->validate([
-            'name'=>'required',
-            'description'=>'required',
-            'ingredients'=>'required',
-            'steps'=>'required',
-            'user_id'=>'required'
-        ]);
-        $image= $userrecipe->image;
-        if($request->hasFile('image')){
-            Storage::delete($userrecipe->image);
-            $image= $request->file('image')->store('public/userrecipes');
+{
+    $user_recipe= Userrecipes::findOrFail($userrecipe);
+    $request->validate([
+        'name' => 'required',
+        'description' => 'required',
+        'ingredients' => 'required',
+        'steps' => 'required',
+    ]);
+
+    $image = $user_recipe->image;
+
+    if ($request->hasFile('image')) {
+        if (!empty($image)) {
+            Storage::delete($image);
         }
-        $userrecipe->update([
-            'name'=>$request->name,
-            'description'=>$request->description,
-            'ingredients'=>$request->ingredients,
-            'steps'=>$request->steps,
-            'image'=>$image,
-            'user_id' => $request->user()->id
-        ]);
-        if ($request->has('categories')) {
-            $userrecipe->categories()->sync($request->categories);
-        }
-        return redirect()->route('welcome');
+
+        $image = $request->file('image')->store('public/userrecipes');
     }
+
+    $user_recipe->update([
+        'name' => $request->name,
+        'description' => $request->description,
+        'ingredients' => $request->ingredients,
+        'steps' => $request->steps,
+        'image' => $image,
+    ]);
+
+    if ($request->has('categories')) {
+        $user_recipe->categories()->sync($request->categories);
+    }
+
+    return redirect()->route('welcome');
+}
 
     /**
      * Remove the specified resource from storage.
