@@ -47,7 +47,7 @@ class RecipesController extends Controller
         if ($request->has('categories')) {
             $recipe->categories()->attach($request->categories);
         }
-        return to_route('admin.recipes.index');
+        return to_route('admin.recipes.index')->with('success', 'Rezept erfolgreich erstellt');
     }
 
     /**
@@ -98,7 +98,7 @@ class RecipesController extends Controller
         if ($request->has('categories')) {
             $recipe->categories()->sync($request->categories);
         }
-        return to_route('admin.recipes.index');
+        return to_route('admin.recipes.index')->with('success', 'Rezept erfolgreich aktualisiert');
     }
 
     /**
@@ -107,7 +107,8 @@ class RecipesController extends Controller
     public function destroy(Recipes $recipe)
     {
         Storage::delete($recipe->image);
+        $recipe->categories()->detach();
         $recipe->delete();
-        return to_route('admin.recipes.index');
+        return to_route('admin.recipes.index')->with('danger', 'Rezept erfolgreich gelöscht');
     }
 }

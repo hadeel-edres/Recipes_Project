@@ -60,7 +60,7 @@ class WelcomeRecipesController extends Controller
         if ($request->has('categories')) {
             $userrecipes->categories()->attach($request->categories);
         }
-        return redirect()->route('welcome');
+        return redirect()->route('welcome')->with('success', 'Rezept erfolgreich erstellt');
 
     }
 
@@ -136,7 +136,7 @@ class WelcomeRecipesController extends Controller
         $user_recipe->categories()->sync($request->categories);
     }
 
-    return redirect()->route('welcome');
+    return redirect()->route('welcome')->with('success', 'Rezept erfolgreich aktualisiert');
 }
 
     /**
@@ -150,7 +150,7 @@ class WelcomeRecipesController extends Controller
     Storage::delete($userrecipe->image);
     $userrecipe->delete();
     
-    return redirect()->route('welcome');
+    return redirect()->route('welcome')->with('danger', 'Rezept erfolgreich gelöscht');
 }
 
 

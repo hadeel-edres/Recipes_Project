@@ -34,8 +34,28 @@
             <div class=" mt-4 text-center">
               <h3 class="text-4xl text-indigo-500 font-bold">User Rezepte </h3>
             </div>
+          
             <div class="container w-full px-5 py-6 mx-auto">
-             <div class="grid lg:grid-cols-4 gap-y-6">
+            <!-- splash messages -->
+            @if(session()->has('success'))
+            <div id="successMessage" class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800 max-w-[400px]" role="alert">
+              <span class="font-medium"></span> {{ session()->get('success') }}
+                </div>
+                  @endif
+
+            @if(session()->has('danger'))
+            <div id="dangerMessage" class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800 max-w-[400px]" role="alert">
+             <span class="font-medium"></span> {{ session()->get('danger') }}
+              </div>
+                @endif
+
+          @if(session()->has('warning'))
+           <div id="warningMessage" class="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800 max-w-[400px]" role="alert">
+             <span class="font-medium">Achtung!</span> {{ session()->get('warning') }}
+              </div>
+                @endif
+
+        <div class="grid lg:grid-cols-4 gap-y-6">
         @foreach($userrecipes as $userrecipe)
         <div class="max-w-xs mx-4 mb-2 rounded-lg shadow-lg">
            <a href="#">
@@ -206,5 +226,27 @@
 </div>
 
 </section>
+
+<!-- JavaScript-Code -->
+<script>
+  // Zeit in Millisekunden, nach der die Nachricht ausgeblendet werden soll.
+  const fadeOutTime = 5000; // 5 Sekunden
+
+  // Funktion zum Ausblenden der Splash-Nachricht
+  function hideSplashMessage(messageId) {
+    const messageElement = document.getElementById(messageId);
+    messageElement.style.opacity = '0';
+    setTimeout(() => {
+      messageElement.style.display = 'none';
+    }, 500); // 0,5 Sekunden Wartezeit, bevor das Element ausgeblendet wird
+  }
+
+  // Nachrichten nach der vorgegebenen Zeit ausblenden
+  setTimeout(() => {
+    hideSplashMessage('successMessage');
+    hideSplashMessage('dangerMessage');
+    hideSplashMessage('warningMessage');
+  }, fadeOutTime);
+</script>
 
 </x-guest-layout>
