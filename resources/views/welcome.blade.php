@@ -229,7 +229,7 @@
 
 <!-- JavaScript-Code -->
 <script>
-  // Zeit in Millisekunden, nach der die Nachricht ausgeblendet werden soll.
+  // Zeit in Millisekunden, nach der die Nachricht ausgeblendet werden soll
   const fadeOutTime = 5000; // 5 Sekunden
 
   // Funktion zum Ausblenden der Splash-Nachricht
@@ -243,9 +243,17 @@
 
   // Nachrichten nach der vorgegebenen Zeit ausblenden
   setTimeout(() => {
-    hideSplashMessage('successMessage');
-    hideSplashMessage('dangerMessage');
-    hideSplashMessage('warningMessage');
+    @if(session()->has('success'))
+      hideSplashMessage('successMessage');
+    @endif
+
+    @if(session()->has('danger'))
+      hideSplashMessage('dangerMessage');
+    @endif
+
+    @if(session()->has('warning'))
+      hideSplashMessage('warningMessage');
+    @endif
   }, fadeOutTime);
 </script>
 
