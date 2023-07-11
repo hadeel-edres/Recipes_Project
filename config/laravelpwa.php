@@ -8,9 +8,8 @@ return [
         'start_url' => '/rec.ipe',
         'background_color' => '#6777ef',
         'theme_color' => '#6777ef',
-        'display' => 'standalone',
         'orientation'=> 'any',
-        'status_bar'=> 'black',
+        'display' => 'standalone',
         'icons' => [
             '20x20' => [
                 'path' => '/images/icons/AppIcon20x20.png',
@@ -61,32 +60,7 @@ return [
                 'purpose' => 'any'
             ],
         ],
-        'splash' => [
-            '200x320' => '/public/images/icons/200x320.png',
-            '828x1792' => '/public/images/icons/828x1792.png',
-            '960x1600' => '/public/images/icons/960x1600.png',
-            '1125x2436' => '/public/images/icons/1125x2436.png',
-            '1242x2208' => '/public/images/icons/1242x2208.png',
-            '1242x2688' => '/public/images/icons/1242x2688.png',
-            '128x1920' => '/public/images/icons/128x1920.png',
-            '1536x2008' => '/public/images/icons/1536x2008.png',
-        ],
-        'shortcuts' => [
-            [
-                'name' => 'Shortcut Link 1',
-                'description' => 'Shortcut Link 1 Description',
-                'url' => '/shortcutlink1',
-                'icons' => [
-                    "src" => "/images/icons/icon-72x72.png",
-                    "purpose" => "any"
-                ]
-            ],
-            [
-                'name' => 'Shortcut Link 2',
-                'description' => 'Shortcut Link 2 Description',
-                'url' => '/shortcutlink2'
-            ]
-        ],
+        
         'custom' => []
     ]
 ];

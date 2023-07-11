@@ -23,7 +23,8 @@
     <div class="bg-stone-300 shadow-md" x-data="{ isOpen: false }">
     <nav class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center">
     <div class="flex items-center justify-between">
-    <a class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 md:text-2xl hover:text-indigo-500 inline-block relative flex-shrink-0">
+    <a class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 md:text-2xl hover:text-indigo-500 inline-block relative flex-shrink-0"
+    href="/rec.ipe" >
         Rec.ipe
     </a>
 
@@ -42,8 +43,14 @@
     <div :class="isOpen ? 'flex' : 'hidden'" class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
         <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500 block md:inline-block md:mt-0" href="/rec.ipe">Home</a>
         <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500 block md:inline-block md:mt-0" href="{{ route('categories.index') }}">Rezepte nach Mahlzeit</a>
+        @auth
+        @if(Auth::user()->is_admin)
+        <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500 block md:inline-block md:mt-0" href="/admin">Admin Bereich</a>
+        @endif
+      @endauth
         <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500 block md:inline-block md:mt-0" href="/login">Login</a>
-        <a class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-400 hover:text-indigo-500 block md:inline-block md:mt-0" href="/register">Registrieren</a>
+        
+
         @auth
         <x-dropdown align="right" width="48">
             <x-slot name="trigger">

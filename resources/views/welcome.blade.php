@@ -16,7 +16,11 @@
       </div>
       <div class="flex flex-col items-center mt-12 text-center">
       @if (!Auth::check())
-        <h2 class="text-white"> Melden Sie sich oder registrieren Sie, um ein Rezept hinzufügen zu können. <a href="/register" class="text-indigo-500 underline dark:text-indigo-500 hover:no-underline hover:text-blue-400">registrieren</a>
+      <div>
+      <p class="text-white text-lg leading-loose">Melden Sie sich oder registrieren Sie, um ein Rezept hinzufügen zu können.</p> <br>
+       <button class="inline-flex items-center justify-center px-6 py-2 text-base font-bold leading-6 text-white bg-indigo-500 hover:bg-indigo-400 rounded-full w-full md:w-auto focus:outline-none">Registrieren</button>
+        </div>
+
 </h2> @endif
           <br>
           <br>
