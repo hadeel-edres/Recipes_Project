@@ -9,17 +9,17 @@
                         <div class="px-6 py-4">
                             <h1 class="mb-3 text-xl font-semibold tracking-tight text-indigo-500 uppercase">
                                 {{ $recipe->name }}</h1>
-                            <h3 class="mb-3 text-xl font-semibold tracking-tight text-black"> Beschreibung </h3>
+                            <h3 class="mb-3 text-xl font-semibold tracking-tight text-black">Beschreibung</h3>
                             <p class="leading-normal text-gray-700">
                                 {{ $recipe->description }}
                             </p>
                             <br>
-                            <h3 class="mb-3 text-xl font-semibold tracking-tight text-black"> Zutaten </h3>
+                            <h3 class="mb-3 text-xl font-semibold tracking-tight text-black">Zutaten</h3>
                             <p class="leading-normal text-gray-700">
                                 {{ $recipe->ingredients }}
                             </p>
                             <br>
-                            <h3 class="mb-3 text-xl font-semibold tracking-tight text-black"> Zubereitung </h3>
+                            <h3 class="mb-3 text-xl font-semibold tracking-tight text-black">Zubereitung</h3>
                             <p class="leading-normal text-gray-700">
                                 {{ $recipe->steps }}
                             </p>
@@ -27,7 +27,7 @@
                         <div class="flex m-2 p-2">
                             @if ($recipe->categories->first())
                                 <a href="{{ route('admin.recipes.index') }}"
-                                    class="px-4 py-2 bg-indigo-500 hover:bg-indigo-400 rounded-lg text-white"> Zurück</a>
+                                    class="px-4 py-2 bg-indigo-500 hover:bg-indigo-400 rounded-lg text-white">Zurück</a>
                             @endif
                         </div>
                     @else
