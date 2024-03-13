@@ -23,7 +23,7 @@ This bachelor thesis describes the development of a website for international re
 
 # Technical details:
 
-- Framework: Laravel
+- Framework: Laravel 10
 - Database: MySQL
 - Design: Tailwind CSS
 - Build tool: Laravel Mix
