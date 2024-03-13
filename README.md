@@ -7,18 +7,18 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-#International Recipe Website
+# International Recipe Website
 
-#Description:
+# Description:
 
 This bachelor thesis describes the development of a website for international recipes. The website allows users to find recipes from all over the world.
 
-#Features:
+# Features:
 
 - Add and edit recipes: Users can add and edit their own recipes with photos, descriptions, ingredients, and preparation steps.
 - Responsive design: The website is responsive and can be used on all devices.
 
-#Technical details:
+# Technical details:
 
 - Framework: Laravel
 - Database: MySQL
