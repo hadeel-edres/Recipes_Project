@@ -16,6 +16,9 @@ This bachelor thesis describes the development of a website for international re
 # Features:
 
 - Add and edit recipes: Users can add and edit their own recipes with photos, descriptions, ingredients, and preparation steps.
+- Progressive Web App: The website is designed as a Progressive Web App (PWA). This means that it can be installed on the user's device like a native app.
+- Offline access: The app can also be used offline after it has been installed once.
+- Faster loading times: The app loads faster than a conventional website because it is stored in the browser's cache.
 - Responsive design: The website is responsive and can be used on all devices.
 
 # Technical details:
